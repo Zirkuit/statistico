@@ -6,11 +6,10 @@ import os
 class Serv(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        if os.path.exists("index.html"):
-            os.remove("index.html")
+        if os.path.exists("/index.html"):
+            os.remove("/index.html")
         f = open("index.html", "w")
-        f.write('<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Raspberry Pi Stats</title></head><body>')
-        f.write("<p>IP Adress: </p>")
+        f.write('<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content=$
         cmd = "hostname -I | cut -d\' \' -f1"
         IP = subprocess.check_output(cmd, shell = True )
         cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
@@ -19,13 +18,16 @@ class Serv(BaseHTTPRequestHandler):
         MemUsage = subprocess.check_output(cmd, shell = True )
         cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
         Disk = subprocess.check_output(cmd, shell = True )
+        cmd = "uptime"
+        uptime = subprocess.check_output(cmd, shell = True )
         f.write("<p>IP Adress: " + str(IP) + "</p>")
         f.write("<p>CPU Usage: " + str(CPU) + "</p>")
         f.write("<p>Memory Usage: " + str(MemUsage) + "</p>")
         f.write("<p>Disk Usage: " + str(Disk) + "</p>")
+        f.write("<p>Uptime: " + str(uptime) + "</p>")
         f.write("</body></html>")
-        if self.path == '/':
-            self.path = '/index.html'
+        f.close()
+        self.path = '/index.html'
         try:
             file_to_open = open(self.path[1:]).read()
             self.send_response(200)
@@ -35,5 +37,5 @@ class Serv(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(file_to_open, 'utf-8'))
 
-httpd = HTTPServer(('localhost', 8086), Serv)
+httpd = HTTPServer(('192.168.0.16', 8080), Serv)
 httpd.serve_forever()
