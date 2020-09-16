@@ -9,7 +9,7 @@ class Serv(BaseHTTPRequestHandler):
         if os.path.exists("/index.html"):
             os.remove("/index.html")
         f = open("index.html", "w")
-        f.write('<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content=$
+        f.write('<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Raspberry Pi Stats</title></head><body>')
         cmd = "hostname -I | cut -d\' \' -f1"
         IP = subprocess.check_output(cmd, shell = True )
         cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
