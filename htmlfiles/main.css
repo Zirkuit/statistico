@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Palanquin:wght@400;600&display=swap');
+
+:root {
+    --gray: rgb(138, 138, 138);
+}
+
+* {
+    font-family: 'Palanquin', sans-serif;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+}
+
+header h1 {
+    font-size: 40px;
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.cards {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: var(--gray) 2px solid;
+    width: 370px;
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+.cardtopdiv h2 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.cardtopdiv {
+    width: fill-available;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardtopdiv i {
+    font-size: 3.7em;
+}
+
+.cardvalue {
+    font-size: 1.7em;
+    color: var(--gray);
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+footer {
+    display: flex;
+    width: fill-available;
+    flex-direction: column;
+    align-items: center;    
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
+footer p {
+    margin-top: -10px;
+}
