@@ -1,84 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Palanquin:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Palanquin:wght@400;600&display=swap");
 
 :root {
-    --gray: rgb(138, 138, 138);
+  --gray: rgb(138, 138, 138);
 }
 
 * {
-    font-family: 'Palanquin', sans-serif;
-    box-sizing: border-box;
-    color: white;
+  font-family: "Palanquin", sans-serif;
+  box-sizing: border-box;
+  color: white;
 }
 
 body {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
 }
 
-header h1 {
-    font-size: 40px;
-    margin-left: 50px;
-    margin-top: 40px;
+.logo-div {
+  width: 100%;
+  text-align: center;
 }
 
-.cards {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.logo {
+  width: 500px;
 }
 
-.card {
-    border: var(--gray) 2px solid;
-    width: 370px;
-    height: 200px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-right: 50px;
-    margin-bottom: 50px;
-}
-
-.cardtopdiv h2 {
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-}
-
-.cardtopdiv {
-    width: fill-available;
-    display: flex;
-    justify-content: space-between;
-}
-
-.cardtopdiv i {
-    font-size: 3.7em;
-}
-
-.cardvalue {
-    font-size: 1.7em;
-    color: var(--gray);
-    font-family: 'IBM Plex Mono', monospace;
+.section-title {
+  width: 100%;
+  text-align: center;
 }
 
 footer {
-    display: flex;
-    width: fill-available;
-    flex-direction: column;
-    align-items: center;    
-    position:absolute;
-    bottom:0;
-    width:100%;
+  display: flex;
+  width: fill-available;
+  flex-direction: column;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
 }
 
 footer p {
-    margin-top: -10px;
+  margin-top: -10px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.column3 {
+  float: left;
+  width: 33%;
+  
+}
+
+.row {
+  margin: 0 -5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 300px;
+  text-align: center;
+  margin: 20px;
+  background-color: #000;
+  border: 1px solid white;
+  position: relative;
+}
+
+.separator-div {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.separator {
+  height: 1px;
+  background-color: #e6e6e6;
+  width: 35%;
+  margin: 0 auto;
+  background-image: linear-gradient(left, white 2%, #e6e6e6 50%, white 98%);
+  background-image: -o-linear-gradient(left, white 2%, #e6e6e6 50%, white 98%);
+  background-image: -moz-linear-gradient(
+    left,
+    white 2%,
+    #e6e6e6 50%,
+    white 98%
+  );
+  background-image: -webkit-linear-gradient(
+    left,
+    white 2%,
+    #e6e6e6 50%,
+    white 98%
+  );
+  background-image: -ms-linear-gradient(left, white 2%, #e6e6e6 50%, white 98%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    right bottom,
+    color-stop(0.02, white),
+    color-stop(0.5, gray),
+    color-stop(0.98, white)
+  );
+}
+
+.card-title {
+  color: rgba(255, 255, 255, 0.603);
+}
+
+.card-large-content {
+  color: white;
+  font-size: 60px;
+  margin-top: -10px;
+}
+
+.card-side-content {
+  color: white;
+  font-size: 80px;
+  margin-top: -30px;
+  right: 100px;
+  position: absolute;
+}
+
+.cardicon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 200px;
+  color: rgba(128, 128, 128, 0.274);
+}
+
+@media screen and (max-width: 1200px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .card-large-content {
+    font-size: 40px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .card-side-content {
+    color: white;
+    font-size: 80px;
+    margin-top: -30px;
+    width: 100%;
+    text-align: center;
+  }
 }
